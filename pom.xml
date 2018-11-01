@@ -5,7 +5,7 @@
 
   <groupId>io.cimpress</groupId>
   <artifactId>tagliatelle</artifactId>
-  <version>0.0</version>
+  <version>0.0-SNAPSHOT</version>
 
   <name>tagliatelle</name>
   <url>https://github.com/Cimpress/cimpress-tagliatelle-java</url>
@@ -59,8 +59,8 @@
   </dependencies>
 
   <scm>
-    <connection>scm:git:https://github.com/Cimpress/cimpress-tagliatelle-java.git/tags/tagliatelle-1.0</connection>
-    <developerConnection>scm:git:https://github.com/Cimpress/cimpress-tagliatelle-java.git/tags/tagliatelle-1.0</developerConnection>
+    <connection>scm:git:https://github.com/Cimpress/cimpress-tagliatelle-java.git</connection>
+    <developerConnection>scm:git:https://github.com/Cimpress/cimpress-tagliatelle-java.git</developerConnection>
     <tag>tagliatelle-0.0</tag>
   </scm>
 
