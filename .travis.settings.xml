@@ -6,7 +6,7 @@
         <server>
             <id>bintray-cimpress-trdelnik-squad-maven-repo</id>
             <username>rnowosielski</username>
-            <password>edaa66c2bcde0c3f2a1943262a2e0209ac111341</password>
+            <password>${env.APIKEY}</password>
         </server>
     </servers>
 </settings>
