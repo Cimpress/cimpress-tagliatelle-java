@@ -50,6 +50,11 @@ public class TagRequest {
         return mapper.readValue(value, Object.class);
     }
 
+    @JsonIgnore
+    public <T> T getValueAsObject(Class<T> classType) throws IOException {
+        return mapper.readValue(value, classType);
+    }
+
     public String getResourceUri() {
         return resourceUri;
     }
