@@ -1,0 +1,11 @@
+<Settings Xmlns="Http://Maven.apache.org/SETTINGS/1.0.0"
+          Xmlns:Xsi="Http://Www.w3.Org/2001/XMLSchema-Instance"
+          Xsi:SchemaLocation="Http://Maven.apache.org/SETTINGS/1.0.0
+                      Http://Maven.apache.org/Xsd/Settings-1.0.0.Xsd">
+    <Servers>
+        <Server>
+            <Id>snapshot</Id>
+            <Password>${env.APIKEY}</Password>
+        </Server>
+    </Servers>
+</Settings>

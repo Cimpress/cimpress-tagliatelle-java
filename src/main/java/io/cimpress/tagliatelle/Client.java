@@ -7,18 +7,22 @@ package io.cimpress.tagliatelle;
 public class Client
 {
     private final String accessToken;
+    private String tagliatelleUrl = null;
 
     public Client(String accessToken) {
         this.accessToken = accessToken;
     }
 
-    public ClientRequest tag()
-    {
-        return new ClientRequest(this.accessToken, Operation.TAG);
+
+    public Client(String accessToken, String urlOverride) {
+        this(accessToken);
+        this.tagliatelleUrl = urlOverride;
     }
 
-    public ClientRequest untag()
+
+    public ClientRequest tag()
     {
-        return new ClientRequest(this.accessToken, Operation.UNTAG);
+        return new ClientRequest(this.accessToken, this.tagliatelleUrl);
     }
+
 }

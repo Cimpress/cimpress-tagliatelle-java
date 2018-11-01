@@ -4,6 +4,8 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
@@ -30,42 +32,67 @@ public class LowLevelClientTest
 
     @Before
     public void initialize() {
-        lowLevelClient = new LowLevelClient("", "http://localhost:8089");
+        lowLevelClient = new LowLevelClient("Zndlcmd2MjN0MjN0NTUzNjVmZmZld3FkMndlZmMzNDUy", "http://localhost:8089");
     }
 
     @Test
-    public void postTagHandlesUnauthorizedGracefully() throws UnirestException, ExecutionException, InterruptedException {
+    public void postTagHandlesUnauthorizedGracefully() throws ExecutionException, InterruptedException {
         stubFor(post(urlMatching("/v0/tags")).atPriority(5).willReturn(aResponse().withStatus(401).withBody("{}")));
         TagRequest tag = new TagRequest();
-        tag.key = "urn:tagspace:tag";
-        tag.resourceUri = "http://some.resource.url";
-        tag.value = "Some value";
         Future<HttpResponse<TagResponse>> result = lowLevelClient.postTag(tag);
-        assertEquals("Expecting Unauthorized status",401, result.get().getStatus() );
+        assertEquals("Expecting unauthorized status",401, result.get().getStatus() );
     }
 
     @Test
-    public void putTagHandlesUnauthorizedGracefully() throws UnirestException, ExecutionException, InterruptedException {
+    public void postReturnsTheBodyOfCreatedTag() throws ExecutionException, InterruptedException, JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        stubFor(post(urlMatching("/v0/tags")).atPriority(5).willReturn(aResponse().withStatus(200).withBody(
+                objectMapper.writeValueAsString(new Object() {
+                    public String resourceUri = "http://some.resource";
+                    public String key = "urn:my-service:tag";
+                    public String value = "bla bla bla";
+                    public String createdAt = "2018-11-01T09:27:17+00:00";
+                    public String createdBy= "auth0|a767ex734cv376vx346xv34";;
+                    public String modifiedAt = "2018-11-01T09:27:18+00:00";
+                    public String modifiedBy = "auth0|sdfv454353543534534534";;
+                }))));
+        TagRequest tag = new TagRequest();
+        tag.setKey("urn:tagspace:tag");
+        tag.setResourceUri("http://some.resource.url");
+        tag.setValueAsString("Some value");
+        Future<HttpResponse<TagResponse>> response = lowLevelClient.postTag(tag);
+        TagResponse result = response.get().getBody();
+        assertEquals("http://some.resource", result.getResourceUri());
+        assertEquals("urn:my-service:tag", result.getKey());
+        assertEquals("bla bla bla", result.getValueAsString());
+        assertEquals("2018-11-01T09:27:17+00:00", result.createdAt);
+        assertEquals("auth0|a767ex734cv376vx346xv34",result.createdBy);
+        assertEquals("2018-11-01T09:27:18+00:00", result.modifiedAt);
+        assertEquals("auth0|sdfv454353543534534534", result.modifiedBy);
+    }
+
+    @Test
+    public void putTagHandlesUnauthorizedGracefully() throws ExecutionException, InterruptedException {
         stubFor(put(urlMatching("/v0/tags/0")).atPriority(5).willReturn(aResponse().withStatus(401).withBody("{}")));
         TagRequest tag = new TagRequest();
-        tag.key = "urn:tagspace:tag";
-        tag.resourceUri = "http://some.resource.url";
-        tag.value = "Some value";
+        tag.setKey("urn:tagspace:tag");
+        tag.setResourceUri("http://some.resource.url");
+        tag.setValueAsString("Some value");
         Future<HttpResponse<TagResponse>> result = lowLevelClient.putTag("0", tag);
-        assertEquals("Expecting Unauthorized status",401, result.get().getStatus() );
+        assertEquals("Expecting unauthorized status",401, result.get().getStatus() );
     }
 
     @Test
-    public void deleteTagHandlesUnauthorizedGracefully() throws UnirestException, ExecutionException, InterruptedException {
+    public void deleteTagHandlesUnauthorizedGracefully() throws ExecutionException, InterruptedException {
         stubFor(delete(urlMatching("/v0/tags/0")).atPriority(5).willReturn(aResponse().withStatus(401).withBody("{}")));
         Future<HttpResponse<JsonNode>> result = lowLevelClient.deleteTag("0");
-        assertEquals("Expecting Unauthorized status",401, result.get().getStatus() );
+        assertEquals("Expecting unauthorized status",401, result.get().getStatus() );
     }
 
     @Test
-    public void getTagsHandlesUnauthorizedGracefully() throws UnirestException, ExecutionException, InterruptedException {
+    public void getTagsHandlesUnauthorizedGracefully() throws ExecutionException, InterruptedException {
         stubFor(get(urlMatching("/v0/tags?.*")).atPriority(5).willReturn(aResponse().withStatus(401).withBody("{}")));
         Future<HttpResponse<TagBulkResponse>> result = lowLevelClient.getTags("urn:test", "https://resource.url");
-        assertEquals("Expecting Unauthorized status",401, result.get().getStatus() );
+        assertEquals("Expecting unauthorized status",401, result.get().getStatus() );
     }
 }

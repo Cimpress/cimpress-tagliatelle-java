@@ -1,0 +1,13 @@
+language: java
+jdk:
+- oraclejdk8
+- openjdk8
+deploy:
+  provider: script
+  script: cp .travis.settings.xml $HOME/.m2/settings.xml && mvn deploy
+  skip_cleanup: true
+  on:
+    branch: master
+env:
+  APIKEY:
+    secure: SIxn1kys/ZBdSdznGZmvOb3gdfWkW6HGcqVzqnKZFS0NChSUtBiPLZwH6GG6GYjJp57V5TD1kHqA+2+icDlvg+3irX92luPikU8KnORZqmDaX/+C/Lakk5cBKIF04u1kyI3bQ7B46Z43ktaGSrY+OrJwXBXqOu/ZFoaLSc5/QoN/G7IGCpvX8obWO2VYZ6n5PgqLAbmKKVgiZpTVXjBTykCnwwkjV4tfEZS4cTq4hGj9iOxs7R8GHYOiX7Qm1lS8siK4e2aYznvsn+gCSeThSCP9Z6EZoYqLkD5sSJqrlbHYFxPqONz3SZF5te416tNZ9iL7QpWl8jDNg7c4GMvo/08rTYVWPVNW8JTwP04+3WE+3YNwWb4SuOI/fR7QFtYds6bDewEFOyodW19BZogqRGt3bFCdKAYOm2UKP60zi7oRnDPdBxFHl1RWq8Jh/eO6NkTBQfPUqdK0Q8QMaDfH/rjDGkBC+9cNYHHNs2m24zlKCtqlQ0ZIfCl8aLgomkkZ+r+UDzUymnw68u6gOEcXlP4K5Kv1wjycX3dSi41zaS4tg07qchwWYCQWQLOStMe3GwqCDmDtFvWRxDjABnjMmKugaXDc5pmANH+oygW2IMSskCuK2vYD51BqFzUu0rXU3lSlynI3c61AqTL/MP/pajolEV3IhESFaBMzhjz+yF8=
