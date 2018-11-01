@@ -59,8 +59,8 @@
   </dependencies>
 
   <scm>
-    <connection>scm:git:https://github.com/Cimpress/cimpress-tagliatelle-java.git</connection>
-    <developerConnection>scm:git:https://github.com/Cimpress/cimpress-tagliatelle-java.git</developerConnection>
+    <connection>scm:git:git@github.com:Cimpress/cimpress-tagliatelle-java.git</connection>
+    <developerConnection>scm:git:git@github.com:Cimpress/cimpress-tagliatelle-java.git</developerConnection>
     <tag>tagliatelle-0.0</tag>
   </scm>
 
