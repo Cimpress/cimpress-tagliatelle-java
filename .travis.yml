@@ -9,7 +9,7 @@ deploy:
   script: cp .travis.settings.xml $HOME/.m2/settings.xml && mvn deploy
   skip_cleanup: true
   on:
-    tag: true
+    tags: true
 env:
   APIKEY:
     secure: kjOQONmBbtXKbIvs+BnLXXWvOHiOrrOzpJBbKTmMn7xPUgdTE4LhSqn2E7LSW76jF09+/wfQRo7KGHiYRZFt/YNbYYjCwL4lnGt5au8Y2Z8CElqv++QHx4Du3Bno8AQENNbjRzKvqZCo5SPm+PiTFax+7cS3653vWcb4wEtTqTSSaDtE0yC2H/uj1OQSVHG13s3cMJiDa8nJUIETZ+GlJK0b7VziF/KqsA2zgXteoZDGOIBqGADQS6TnD/YbDvc+H2D08+mClrgL8qsVV8T3GyEEo5H6LwRnAcDZgPAE8M0lY/S+O3C0JwH6msYqJxJV7ukmPDetfE8cmM3asebyuafy93UwwsA9ZMUNOSFV4063RTjZUmNor2v5aZNeXWWUr+b1xGhn1rbxiq6TEQmsATnvU1LAYIY7hatk84M+X6YgKayGSCpYGu0AEy/gnMQSP9gEv7UTsdC5/j7I6eEcewH++uGQNMhv9A1d/wcFyf3fSv822eS7P8V+bDti5EFZ/glD9V27ugGW524JzMIixi7j6OlBGLS/MSuj5qsZqhNAL5mjw81FDMJCaslYVz3LLrw0Q1+eMJR/Uyr4rK0XJJcvkEIP+RtRSbPkhGW+mKr0VAlN5M1RdmIWYu4Cww+arQELMStDSF2UG6Ld0s+2IB8pZTngKcSZ8G0cCkSO2Lc=
