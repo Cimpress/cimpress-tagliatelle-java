@@ -8,5 +8,10 @@
             <username>rnowosielski</username>
             <password>${env.APIKEY}</password>
         </server>
+        <server>
+            <id>snapshots</id>
+            <username>rnowosielski</username>
+            <password>${env.ARTIFACTORY_API_KEY}</password>
+        </server>
     </servers>
 </settings>

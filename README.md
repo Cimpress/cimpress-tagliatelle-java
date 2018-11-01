@@ -9,7 +9,11 @@ First prepare the build
 
     $ mvn release:prepare
     
-The next step is optional, if you skip this step travis should build the tagged commit that is made as part of the first step.
+The next step is optional because we have travis looking at the release tags. 
+
+Travis should build the tagged commit that is made as part of the first step.
+
+Although if you are in a hurry and have access you can perform release manually
 
     $ mvn release:perform
 

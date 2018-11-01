@@ -107,6 +107,11 @@
       <name>cimpress-trdelnik-squad-maven-repo</name>
       <url>https://api.bintray.com/maven/cimpress-trdelnik-squad/maven-repo/cimpress-tagliatelle-java/;publish=1</url>
     </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>ctartifactoryuseast-snapshots</name>
+      <url>https://artifactory.cimpress.io/artifactory/mvn-release-local</url>
+    </snapshotRepository>
   </distributionManagement>
 
 </project>
