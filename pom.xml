@@ -103,9 +103,9 @@
 
   <distributionManagement>
     <repository>
-      <id>bintray-rnowosielski-trdlnk-release</id>
-      <name>rnowosielski-trdlnk-release</name>
-      <url>https://api.bintray.com/maven/rnowosielski/trdlnk-release/cimpress-tagliatelle-java/;publish=1</url>
+      <id>bintray-cimpress-trdelnik-squad-maven-repo</id>
+      <name>cimpress-trdelnik-squad-maven-repo</name>
+      <url>https://api.bintray.com/maven/cimpress-trdelnik-squad/maven-repo/cimpress-tagliatelle-java/;publish=1</url>
     </repository>
   </distributionManagement>
 
