@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.cimpress</groupId>
@@ -59,6 +58,12 @@
 
   </dependencies>
 
+  <scm>
+    <connection>scm:git:https://github.com/Cimpress/cimpress-tagliatelle-java.git/tags/tagliatelle-1.0</connection>
+    <developerConnection>scm:git:https://github.com/Cimpress/cimpress-tagliatelle-java.git/tags/tagliatelle-1.0</developerConnection>
+  </scm>
+
+
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
@@ -97,16 +102,10 @@
 
   <distributionManagement>
     <repository>
-      <id>central</id>
-      <name>ctartifactoryuseast-releases</name>
-      <url>https://artifactory.cimpress.io/artifactory/mvn-release-local</url>
+      <id>bintray-rnowosielski-trdlnk-release</id>
+      <name>rnowosielski-trdlnk-release</name>
+      <url>https://api.bintray.com/maven/rnowosielski/trdlnk-release/cimpress-tagliatelle-java/;publish=1</url>
     </repository>
-
-    <snapshotRepository>
-      <id>snapshots</id>
-      <name>ctartifactoryuseast-snapshots</name>
-      <url>https://artifactory.cimpress.io/artifactory/mvn-release-local</url>
-    </snapshotRepository>
   </distributionManagement>
 
 </project>
