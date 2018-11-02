@@ -61,10 +61,10 @@ public class LowLevelClient {
                 .header("Content-Type", "application/json")
                 .header("Authorization", "Bearer " + accessToken);
 
-        if (key != null) {
+        if (resourceUri != null) {
             request.queryString("resourceUri", resourceUri);
         }
-        if (resourceUri != null) {
+        if (key != null) {
             request.queryString("key", key);
         }
 
