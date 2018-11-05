@@ -10,11 +10,13 @@ deploy:
     skip_cleanup: true
     on:
       branch: "master"
+      jdk: 'oraclejdk8'
   - provider: script
     script: cp .travis.settings.xml $HOME/.m2/settings.xml && mvn deploy
     skip_cleanup: true
     on:
       tags: true
+      jdk: 'oraclejdk8'
 env:
   global:
     - secure: dV0OYi8Q7RwiH2wqnUDTvEfRLXR1JwJEQP4ryqUiHP/mdMh40Qrk2M7LgcwJOZ/T8Kv7PHTWMz+2ZjH11PjK4nl4ct7nOebldsJ7aKiWnnAz6Warp+yyzpg83p4PBcdpHeZM8hMYIG+wlaB+w0Op4LIJ8o7m40tbSJ1pRTGiuzWV0M+aLJe4BjRvD0TCKo6Chr7V6INkzl5lFc63iNczgqt8H3RfQgzMpbiHsGnBOaVruLCwb2hSxPF775OEoOLKCfBugUKMveXH72EtS7nhBI9DBPISKQ32wWr4CHEtwtxmUQhBH6H8GjMwGl7/l1FedCmgFY3u8Pnc2MBnozkajz+5ShbOA++Y2NV10H9LatOB2ypF+7dMFCCpRLGJZsVQpobbV6Vqi8R5XK9jk7e9f9H2jugtgivScVW4gp7y26NinmZC5XoWB13LEfK7D9aIsia3fJ+y5eqgncBH6pPafsBHGs/hErkm7ZsxALN6EOZn/wccg1Lel6ve5IyGOmPbwP9uWajNyvs/MralssVqcFhOugGdAON7nFW/7NG9xZcev8kB5KtJStva3zAOufeXhFLDvBDKFC4fHWEGdaHZxdxPPib6zL9yGJgwFtV1vhQQhgdP2yhB8fjVsfK5PtSZ3JRXYmitgwymw2kdaoc2eB8yqBGEEfEjPSfb4tYvNG4=
