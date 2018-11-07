@@ -5,19 +5,20 @@ jdk:
 script:
 - mvn test
 deploy:
-  - provider: script
-    script: cp .travis.settings.xml $HOME/.m2/settings.xml && mvn deploy
-    skip_cleanup: true
-    on:
-      branch: "master"
-      jdk: 'oraclejdk8'
-  - provider: script
-    script: cp .travis.settings.xml $HOME/.m2/settings.xml && mvn deploy
-    skip_cleanup: true
-    on:
-      tags: true
-      jdk: 'oraclejdk8'
+- provider: script
+  script: cp .travis.settings.xml $HOME/.m2/settings.xml && mvn deploy
+  skip_cleanup: true
+  on:
+    branch: master
+    jdk: oraclejdk8
+- provider: script
+  script: cp .travis.settings.xml $HOME/.m2/settings.xml && mvn deploy
+  skip_cleanup: true
+  on:
+    tags: true
+    jdk: oraclejdk8
 env:
   global:
-    - secure: dV0OYi8Q7RwiH2wqnUDTvEfRLXR1JwJEQP4ryqUiHP/mdMh40Qrk2M7LgcwJOZ/T8Kv7PHTWMz+2ZjH11PjK4nl4ct7nOebldsJ7aKiWnnAz6Warp+yyzpg83p4PBcdpHeZM8hMYIG+wlaB+w0Op4LIJ8o7m40tbSJ1pRTGiuzWV0M+aLJe4BjRvD0TCKo6Chr7V6INkzl5lFc63iNczgqt8H3RfQgzMpbiHsGnBOaVruLCwb2hSxPF775OEoOLKCfBugUKMveXH72EtS7nhBI9DBPISKQ32wWr4CHEtwtxmUQhBH6H8GjMwGl7/l1FedCmgFY3u8Pnc2MBnozkajz+5ShbOA++Y2NV10H9LatOB2ypF+7dMFCCpRLGJZsVQpobbV6Vqi8R5XK9jk7e9f9H2jugtgivScVW4gp7y26NinmZC5XoWB13LEfK7D9aIsia3fJ+y5eqgncBH6pPafsBHGs/hErkm7ZsxALN6EOZn/wccg1Lel6ve5IyGOmPbwP9uWajNyvs/MralssVqcFhOugGdAON7nFW/7NG9xZcev8kB5KtJStva3zAOufeXhFLDvBDKFC4fHWEGdaHZxdxPPib6zL9yGJgwFtV1vhQQhgdP2yhB8fjVsfK5PtSZ3JRXYmitgwymw2kdaoc2eB8yqBGEEfEjPSfb4tYvNG4=
-    - secure: FwhL/4ckmbFdwVweZKNjkj2kmLPXgTYsZijZXBzAL3zl9m7naoTZy0vxADMGyGlVLrhXkmXlibAYvTakOccuBaRRNjyw6Rp5Y8wQih4Z5rQE9SuvDdZyU2zgE41qNr1/y7HOHRTLFnKOfu5hvB8QQRFA8/QYonlSJvBnop13pIrFRVhVzvrpH/mez4dEy2eeMWcllr8GZmQcV2cZm/B9dDR3uuMT1uzWmruFTa8FOYhe3ZLiXxcGx4vvJnngijuCa8aJOkxHmsjd481S1UC/iU3mGcJYIsJOCi2nq019B1QYiK5b6hywe14Qi+hK6HMFLMboHjnnIo4utj1700WvBtC2i8rcUJ6kDCRLNC3bc9uUyU0d09FwMV46gXdhkHt11VISoAh37yzY83wbNxQXSzNupEcJiABxGOoKBfByZCdwkuaowFKkD3x2UGdZzubm6blLJN5/HLnp8MVOrJeEA97z2/+JWKcSXnZwkT2UniFjtyFavkqga5S3/ex3vvyD5PjS0t+tKNBmrJ2k3U5r2elWDmoIQ6GCHx2GOUBJfOKuIMy/a7v7trMuQxNkwy/0OiJXiWemVWqhabzAHb5sCYuTK/aZwOol27C9WHuDwIBh4CiFj2zrS0pg3XknmQCp8jH5t70sjlABqX3b6pFH/r/JUGvYVuovedt/4onio0c=
+  - secure: dV0OYi8Q7RwiH2wqnUDTvEfRLXR1JwJEQP4ryqUiHP/mdMh40Qrk2M7LgcwJOZ/T8Kv7PHTWMz+2ZjH11PjK4nl4ct7nOebldsJ7aKiWnnAz6Warp+yyzpg83p4PBcdpHeZM8hMYIG+wlaB+w0Op4LIJ8o7m40tbSJ1pRTGiuzWV0M+aLJe4BjRvD0TCKo6Chr7V6INkzl5lFc63iNczgqt8H3RfQgzMpbiHsGnBOaVruLCwb2hSxPF775OEoOLKCfBugUKMveXH72EtS7nhBI9DBPISKQ32wWr4CHEtwtxmUQhBH6H8GjMwGl7/l1FedCmgFY3u8Pnc2MBnozkajz+5ShbOA++Y2NV10H9LatOB2ypF+7dMFCCpRLGJZsVQpobbV6Vqi8R5XK9jk7e9f9H2jugtgivScVW4gp7y26NinmZC5XoWB13LEfK7D9aIsia3fJ+y5eqgncBH6pPafsBHGs/hErkm7ZsxALN6EOZn/wccg1Lel6ve5IyGOmPbwP9uWajNyvs/MralssVqcFhOugGdAON7nFW/7NG9xZcev8kB5KtJStva3zAOufeXhFLDvBDKFC4fHWEGdaHZxdxPPib6zL9yGJgwFtV1vhQQhgdP2yhB8fjVsfK5PtSZ3JRXYmitgwymw2kdaoc2eB8yqBGEEfEjPSfb4tYvNG4=
+  - secure: FwhL/4ckmbFdwVweZKNjkj2kmLPXgTYsZijZXBzAL3zl9m7naoTZy0vxADMGyGlVLrhXkmXlibAYvTakOccuBaRRNjyw6Rp5Y8wQih4Z5rQE9SuvDdZyU2zgE41qNr1/y7HOHRTLFnKOfu5hvB8QQRFA8/QYonlSJvBnop13pIrFRVhVzvrpH/mez4dEy2eeMWcllr8GZmQcV2cZm/B9dDR3uuMT1uzWmruFTa8FOYhe3ZLiXxcGx4vvJnngijuCa8aJOkxHmsjd481S1UC/iU3mGcJYIsJOCi2nq019B1QYiK5b6hywe14Qi+hK6HMFLMboHjnnIo4utj1700WvBtC2i8rcUJ6kDCRLNC3bc9uUyU0d09FwMV46gXdhkHt11VISoAh37yzY83wbNxQXSzNupEcJiABxGOoKBfByZCdwkuaowFKkD3x2UGdZzubm6blLJN5/HLnp8MVOrJeEA97z2/+JWKcSXnZwkT2UniFjtyFavkqga5S3/ex3vvyD5PjS0t+tKNBmrJ2k3U5r2elWDmoIQ6GCHx2GOUBJfOKuIMy/a7v7trMuQxNkwy/0OiJXiWemVWqhabzAHb5sCYuTK/aZwOol27C9WHuDwIBh4CiFj2zrS0pg3XknmQCp8jH5t70sjlABqX3b6pFH/r/JUGvYVuovedt/4onio0c=
+  - secure: JVOpb28CHoJSIFnITOLSy0qKJ1Viwxkw1xSiG4LMXbQnGUiXnwULQAfpvRSwJrQc1sO6B8rYI8S98eFg0sKSZyi9MsMIjH1S/9Nr6grNcZOQtiC7X1+8+7SDAyEqLmphTgK+CuNUsSh1Hk38M+QGflgXFJNkV2KSzQvI2CqMYYQoAx5lf7tlqIlZPALPno6HPq/v3trt9uiQ1P7wys3h6BJnk9NxupDtmf1KnOoupTZaBDcJcDaCzkd2dmTp/AwPMQw3F2hggTOwPV35PCSdMMPYo/YK/PSLdRXLOFE3o6fymSodESlhCmfUdvp3XWK+tl7Jry8SeZxjBTChyP9aQj1ADMb7Ix+WGttrcUBC8jvYl3teooIR+WXIk3FMjmyblVa+l0o5OtHMh/I+B2OSjFydvm0ntOA+KUk0FFkZSLqE6yDLGSYaa/YrC41ie5Yvw/8AYIy6AbLgi51qI2YGTF7F0Lp6A+648gBgvvQ93tFg9EGCXS8g6Ws8GDncEP2vds8+ENfwLv/TKkVP5Q4catEOAsMHzKkKmaAGopC3yIjOK5eFyCE//muM7KTI1VEPMIQTth+Sro9g4K+283bJ99G2mSnIZ0FuwbAzUVgHrw1ZmD463leWHRMMAJU0G/jG41aby39x07IPlGA89uwIShmgjnuszeGTQ8AXvu62KJc=
