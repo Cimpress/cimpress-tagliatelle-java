@@ -78,7 +78,8 @@
     <scm>
         <connection>scm:git:git@github.com:Cimpress/cimpress-tagliatelle-java.git</connection>
         <developerConnection>scm:git:git@github.com:Cimpress/cimpress-tagliatelle-java.git</developerConnection>
-        <tag>tagliatelle-0.3</tag>
+        <tag>tagliatelle-0.5</tag>
+        <url>https://github.com/Cimpress/cimpress-tagliatelle-java</url>
     </scm>
 
 
