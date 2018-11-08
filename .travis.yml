@@ -5,7 +5,7 @@ jdk:
 before_install:
 - openssl aes-256-cbc -K $encrypted_5165d2f63bd1_key -iv $encrypted_5165d2f63bd1_iv
   -in signing.key.enc -out signing.key -d
-- gpg --import signing.gpg
+- gpg --import signing.key
 - cp .travis.settings.xml $HOME/.m2/settings.xml
 - gpg --list-sigs "Trdelnik Squad"
 script:
