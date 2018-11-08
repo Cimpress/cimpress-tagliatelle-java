@@ -22,7 +22,7 @@
 
     <groupId>io.cimpress</groupId>
     <artifactId>tagliatelle</artifactId>
-    <version>0.5-SNAPSHOT</version>
+    <version>0.5</version>
 
     <name>tagliatelle</name>
     <url>https://github.com/Cimpress/cimpress-tagliatelle-java</url>
